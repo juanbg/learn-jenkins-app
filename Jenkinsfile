@@ -28,6 +28,8 @@ pipeline {
                 sh '''
                     if [ -f "build/index.html" ]; then
                         echo "Index File was found first test pass"
+
+                        npm test
                     else 
                         echo "Index was not found, failing tests..."
                         exit 1
