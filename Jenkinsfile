@@ -22,5 +22,18 @@ pipeline {
                 '''
             }
         }
+
+        stage('test'){
+            steps {
+                sh '''
+                    if [ -f "build/index.html" ]; then
+                        echo "Index File was found first test pass"
+                    else 
+                        echo "Index was not found, failing tests..."
+                        exit 1
+                    fi
+                '''
+            }
+        }
     }
 }
