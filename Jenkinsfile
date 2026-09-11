@@ -82,8 +82,32 @@ pipeline {
                 }                    
             }
         }
+        
+        stage('Deploy Stage') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                    echo "Simulating a NON PROD Deploy"
+                    sleep 10
 
-        stage('Deploy') {
+                '''
+            }
+        }
+
+        stage('Prudction Rls Approval'){
+            steps{
+                timeout(time: 1, unit: 'MINUTES'){
+                    input 'Ready to deploy in PRD?'
+                }
+            }
+        }
+
+        stage('Deploy PRD') {
             agent {
                 docker {
                     image 'node:18-alpine'
