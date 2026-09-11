@@ -154,12 +154,12 @@ pipeline {
             }
 
             //using the publisher plugin
-            post {
-                always {
+            //post {
+                //always {
                     //skipped 'cause it fails due netflify security layer
                     //publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: '', keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright Prod Report', reportTitles: '', useWrapperFileDirectly: true])
-                }
-            }
+                //}
+            //}
         } 
     }
 }
