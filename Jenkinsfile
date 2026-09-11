@@ -118,8 +118,10 @@ pipeline {
 
             steps {
                 sh '''
+                    echo "=============================="
                     echo "*****ENV_VARIABLE_LOADED_LOCAL"
                     echo $CI_ENVIRONMENT_URL
+
                     npx playwright test --reporter=html
 
                     
