@@ -119,6 +119,8 @@ pipeline {
             steps {
                 sh '''
                     npx playwright test --reporter=html
+
+                    echo $CI_ENVIRONMENT_URL
                 '''
             }
 
